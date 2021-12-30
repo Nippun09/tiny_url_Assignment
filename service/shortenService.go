@@ -18,16 +18,6 @@ func init() {
 
 func UrlShortenerService(responseWriter http.ResponseWriter, request *http.Request) {
 	switch request.Method {
-	// case "GET":
-	// 	shortUrlBytes, err := ioutil.ReadAll(request.Body)
-	// 	if err != nil {
-	// 		fmt.Fprintf(responseWriter, "error: failed to read request body")
-	// 	}
-	// 	if longUrl, isPresent := dbShortUrlToLong[string(shortUrlBytes)]; isPresent {
-	// 		fmt.Fprintf(responseWriter, longUrl) //writes long Url to response
-	// 	} else {
-	// 		fmt.Fprintf(responseWriter, "error: long URL for given short URL doesnt exist")
-	// 	}
 	case "POST":
 		longUrlBytes, err := ioutil.ReadAll(request.Body)
 		longUrlString := string(longUrlBytes)
