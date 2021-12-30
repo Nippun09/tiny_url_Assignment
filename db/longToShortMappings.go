@@ -1,20 +1,20 @@
 package db
 
-var databaseHashcodeToShort map[interface{}]string //we cannot use []byte as key, so using interface instead
+var databaseHashcodeToShort map[uint32]string //we cannot use []byte as key, so using interface instead
 var databaseShortToLong map[string]string
 
 func init() {
-	databaseHashcodeToShort = make(map[interface{}]string)
+	databaseHashcodeToShort = make(map[uint32]string)
 	databaseShortToLong = make(map[string]string)
 }
 
-func MapLongUrlHashcodeToShort(hascode []byte, shortUrl string) {
+func MapLongUrlHashcodeToShort(hascode uint32, shortUrl string) {
 
 	databaseHashcodeToShort[hascode] = shortUrl
 
 }
 
-func GetHashcodeToShortDb() map[interface{}]string {
+func GetHashcodeToShortDb() map[uint32]string {
 	return databaseHashcodeToShort
 }
 

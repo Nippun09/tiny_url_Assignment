@@ -9,7 +9,7 @@ import (
 func StartUrlShortenServer() {
 	http.HandleFunc("/shorten", service.UrlShortenerService)
 
-	lasErr := http.ListenAndServe(":9091", nil)
+	lasErr := http.ListenAndServe(":8080", nil)
 
 	if lasErr != nil {
 		log.Fatal(lasErr)

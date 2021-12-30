@@ -2,11 +2,12 @@ package utils
 
 import (
 	"Infracloud_Assignment/singletons"
+	"fmt"
 	"hash"
 	"strings"
 )
 
-var hasher hash.Hash
+var hasher hash.Hash32
 
 func Shorten(longUrl string) (shortUrl string) {
 	hashCode := GenerateHash(longUrl)
@@ -14,12 +15,12 @@ func Shorten(longUrl string) (shortUrl string) {
 	httpString := split1Slice[0]
 	split2Slice := strings.SplitAfter(split1Slice[1], "/")
 	domainString := split2Slice[0]
-	shortUrl = httpString + domainString + string(hashCode)
+	shortUrl = httpString + domainString + fmt.Sprint(hashCode)
 	return shortUrl
 }
 
-func GenerateHash(longUrl string) []byte {
-	hasher = singletons.GetMd5Instance()
-	hashCode := hasher.Sum([]byte(longUrl))
-	return hashCode
+func GenerateHash(longUrl string) uint32 {
+	hasher = singletons.GetFnvHaserInstance()
+	hasher.Write([]byte(longUrl))
+	return hasher.Sum32()
 }
