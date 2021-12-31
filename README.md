@@ -8,4 +8,4 @@ This project uses hashing approach for generating corresponding short URL from g
 
 Start folder contains main function to start server.
 
-environment setup for running this project: set GO111MODULE=off
+environment setup for running this project: set GO111MODULE=off.
