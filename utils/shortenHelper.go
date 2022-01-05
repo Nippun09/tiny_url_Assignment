@@ -10,6 +10,7 @@ import (
 var hasher hash.Hash32
 
 func Shorten(longUrl string) (shortUrl string) {
+	fmt.Printf("long url string :%s\n", longUrl)
 	hashCode := GenerateHash(longUrl)
 	split1Slice := strings.SplitAfter(longUrl, "://")
 	httpString := split1Slice[0]

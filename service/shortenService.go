@@ -21,7 +21,6 @@ func UrlShortenerService(responseWriter http.ResponseWriter, request *http.Reque
 	case "POST":
 		longUrlBytes, err := ioutil.ReadAll(request.Body)
 		longUrlString := string(longUrlBytes)
-		fmt.Printf("long url string :%s\n", longUrlString)
 		if err != nil {
 			fmt.Fprintf(responseWriter, "error: failed to read request body")
 		}
